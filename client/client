@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ ${#} -lt 1 ]; then
+	echo "how many?"
+	exit
+fi
+
+count=$1
+
+for a in $(seq 1 "$count"); do 
+	(curl http://localhost:8080 && echo "$a" && echo) &
+done
